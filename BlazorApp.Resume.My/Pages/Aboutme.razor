@@ -1,0 +1,88 @@
+﻿@page "/about-me"
+
+<h3><span class="oi oi-person"></span> About me</h3>
+<div class="card bg-dark text-white">
+	<img src="/images/geometricBg.jpg" class="card-img" alt="geometric">
+	<div class="card-img-overlay">
+		<div class="row jumbotron">
+			<div class="col-3">
+				<div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+					<a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">My Hobbies</a>
+					<a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">My Contacts</a>				
+				</div>
+			</div>
+			<div class="col-9">
+				<div class="tab-content" id="v-pills-tabContent">
+					<div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+						<ul class="list-unstyled text-black-50">
+							<li class="media">
+								<h5 class="mt-2">Lecturing | Mentoring</h5>
+							</li>
+							<li class="media">
+								<h5 class="mt-2">Researching and Development [R&amp;D]</h5>
+							</li>
+							<li class="media">
+								<h5 class="mt-2">Studying</h5>
+							</li>
+							<li class="media">
+								<h5 class="mt-2">Travelling</h5>
+							</li>
+						</ul>
+					</div>
+					<div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+						<div>
+							<h3 class="text-danger">You can always get connected to me</h3>
+							<hr />
+							<div class="input-group mb-2 mr-sm-2">
+								<div class="input-group-prepend">
+									<div class="input-group-text text-info">OUTLOOK</div>
+								</div>
+								<input type="text" class="form-control" id="outlook" readonly value="codexkenth@outlook.com">
+							</div>
+							<div class="input-group mb-2 mr-sm-2">
+								<div class="input-group-prepend">
+									<div class="input-group-text text-danger">GMAIL</div>
+								</div>
+								<input type="text" class="form-control" id="gmail" readonly value="kodexkenth@gmail.com">
+							</div>
+							<div class="input-group mb-2 mr-sm-2">
+								<div class="input-group-prepend">
+									<div class="input-group-text text-danger">GITHUB</div>
+								</div>
+								<input type="text" class="form-control" id="github" readonly value="https://github.com/KodexDigital">
+							</div>
+							<div class="input-group mb-2 mr-sm-2">
+								<div class="input-group-prepend">
+									<div class="input-group-text text-dark">STACKOVERFLOW</div>
+								</div>
+								<input type="text" class="form-control" id="stackoverflow" readonly value="https://stackoverflow.com/users/11624042/kodex">
+							</div>
+							<div class="input-group mb-2 mr-sm-2">
+								<div class="input-group-prepend">
+									<div class="input-group-text text-primary">LINKEDIN</div>
+								</div>
+								<input type="text" class="form-control" id="linkedin" readonly value="https://www.linkedin.com/in/kennethotoro/">
+							</div>
+							<div class="input-group mb-2 mr-sm-2">
+								<div class="input-group-prepend">
+									<div class="input-group-text text-info">TWITTER</div>
+								</div>
+								<input type="text" class="form-control" id="twitter" readonly value="https://twitter.com/CodexKenth">
+							</div>
+							<div class="input-group mb-2 mr-sm-2">
+								<div class="input-group-prepend">
+									<div class="input-group-text text-primary">FACEBOOK</div>
+								</div>
+								<input type="text" class="form-control" id="twitter" readonly value="https://facebook.com/kenneth-otoro">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+@code {
+
+}
