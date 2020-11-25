@@ -48,7 +48,7 @@ app {
         justify-content: flex-end;
     }
 
-        .main .top-row > a, .main .top-row .btn-link {
+        .main .top-row .bottom-row > a, .main .top-row .btn-link {
             white-space: nowrap;
             margin-left: 1.5rem;
         }
@@ -63,6 +63,9 @@ app {
 }
 
     .sidebar .top-row {
+        background-color: rgba(0,0,0,0.4);
+    }
+    .sidebar .bottom-row {
         background-color: rgba(0,0,0,0.4);
     }
 
@@ -205,6 +208,10 @@ app {
     .main .top-row {
         position: sticky;
         top: 0;
+    }
+    .main .bottom-row {
+        position: sticky;
+        bottom: 0;
     }
 
     .main > div {
