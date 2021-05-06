@@ -1,15 +1,11 @@
-using BlazorApp.Resume.My.Data;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using BlazorApp.Resume.My.Extensions;
+using BlazorApp.Resume.My.Persistence.Data.Context;
+using Microsoft.EntityFrameworkCore;
 
 namespace BlazorApp.Resume.My
 {
@@ -28,7 +24,13 @@ namespace BlazorApp.Resume.My
 		{
 			services.AddRazorPages();
 			services.AddServerSideBlazor();
-			services.AddSingleton<WeatherForecastService>();
+			services.AddDbContext<KEODbContext>(o => o.UseSqlite(Configuration.GetConnectionString("InMemmory-Connection"))); // For production
+			//services.AddDbContextPool<KEODbContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("Internal-Connection"))); // For local
+			//services.AddIdentity<AppUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = false).AddEntityFrameworkStores<KEODbContext>();
+
+			services.AddResumeServices();
+			services.AddBrowserDetection();
+			//services.AddAuthentication("MyResume.Application").AddCookie();
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -49,6 +51,8 @@ namespace BlazorApp.Resume.My
 			app.UseStaticFiles();
 
 			app.UseRouting();
+			//app.UseAuthentication();
+			//app.UseAuthorization();
 
 			app.UseEndpoints(endpoints =>
 			{

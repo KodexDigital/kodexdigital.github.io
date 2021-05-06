@@ -1,0 +1,64 @@
+﻿@page "/admin/my-dashboard"
+@attribute [Authorize]
+
+@using BlazorApp.Resume.My.Persistence.Data
+@inject LikeResumeService likeService
+
+@*<AuthorizeView Roles="Admin">
+    <Authorized>
+
+    </Authorized>
+</AuthorizeView>*@
+<div class="card p-5 col-md-3 text-center">
+    <h3 class="font-weight-bolder"><i class="fa fa-tachometer-alt"></i> Dashboard</h3>
+</div>
+<hr />
+<div class="card">
+    <div class="card-body">
+        <div>
+            <span class="p-2">Outcome of the likes | <span class="badge-info p-2">@counter</span></span>
+            @if (resumeLikes == null)
+            {
+                <p><em>Loading...</em></p>
+            }
+            else
+            {
+                <table class="table table-hover table-dark">
+                    <thead>
+                        <tr>
+                            <th>System Name</th>
+                            <th>System Information</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in resumeLikes)
+                        {
+                            <tr>
+                                <td>@item.SystemName</td>
+                                <td>@item.SystemOS</td>
+                                <td>@item.Date.ToShortDateString()</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+        </div>
+    </div>
+</div>
+
+@code {
+    private ResumeLike[] resumeLikes;
+    private int counter = 0;
+    protected override async Task OnInitializedAsync()
+    {
+        resumeLikes = await likeService.FetchAllLikesAsyn();
+
+        counter = Counter();
+    }
+
+    private int Counter()
+    {
+        return resumeLikes.Count();
+    }
+}
